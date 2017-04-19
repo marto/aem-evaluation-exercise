@@ -25,6 +25,7 @@
     <modules>
         <module>3rdPartyLibs</module>
         <module>core</module>
+        <module>core.spring</module>
         <module>ui.apps</module>
         <module>ui.content</module>
         <module>it.tests</module>

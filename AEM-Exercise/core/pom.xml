@@ -48,6 +48,11 @@
                         <Sling-Model-Packages>
                             au.com.woolworths.core
                         </Sling-Model-Packages>
+
+                        <Import-Package>
+                            !javax.inject,
+                            *
+                        </Import-Package>
                     </instructions>
                 </configuration>
             </plugin>
@@ -78,6 +83,23 @@
         </profile>
     </profiles>
     <dependencies>
+        <dependency>
+            <groupId>AEM-Exercise</groupId>
+            <artifactId>core.spring</artifactId>
+            <type>bundle</type>
+            <scope>provided</scope>
+            <version>${project.version}</version>
+        </dependency>
+    
+        <!-- Use any 3rd party OSGi bundle declared in 3rdPartyLibs module -->
+        <dependency>
+            <groupId>AEM-Exercise</groupId>
+            <artifactId>3rdPartyLibs</artifactId>
+            <type>pom</type>
+            <scope>provided</scope>
+            <version>${project.version}</version>
+        </dependency>
+    
         <!-- OSGi Dependencies -->
         <dependency>
             <groupId>org.apache.felix</groupId>
@@ -131,6 +153,39 @@
         <dependency>
             <groupId>junit-addons</groupId>
             <artifactId>junit-addons</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- Jackson2 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
+        <!-- Apache -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 </project>

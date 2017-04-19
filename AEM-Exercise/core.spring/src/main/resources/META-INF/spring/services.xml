@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+    <context:annotation-config/>
+
+    <bean id="weatherForcastService" class="au.com.woolworths.core.integration.impl.WeatherForcastServiceImpl">
+        <constructor-arg name="restClient" ref="yqlRestClient">
+        </constructor-arg>
+    </bean>
+
+    <bean id="yqlRestClient" class="io.marto.restclient.impl.SimpleRestClient">
+        <constructor-arg name="restTemplate">
+            <bean factory-bean="restTemplateFactory-slow" factory-method="createJsonRestTemplate" />
+        </constructor-arg>
+        <constructor-arg name="url" value="https://query.yahooapis.com/v1/public/yql?q={query}&amp;format=json"/>
+        <constructor-arg name="logger" value="au.com.woolworths.core.integration.impl.WeatherForcastServiceImpl"/>
+    </bean>
+
+</beans>

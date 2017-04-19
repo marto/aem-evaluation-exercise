@@ -1,0 +1,110 @@
+{
+   "query" : {
+      "count" : 1,
+      "lang" : "en-GB",
+      "created" : "2017-04-18T22:56:10Z",
+      "results" : {
+         "channel" : {
+            "item" : {
+               "condition" : {
+                  "date" : "Wed, 19 Apr 2017 08:00 AM AEST",
+                  "text" : "Cloudy",
+                  "temp" : "17",
+                  "code" : "26"
+               },
+               "guid" : {
+                  "isPermaLink" : "false"
+               },
+               "pubDate" : "Wed, 19 Apr 2017 08:00 AM AEST",
+               "title" : "Conditions for Sydney, NSW, AU at 08:00 AM AEST",
+               "long" : "151.020966",
+               "forecast" : [
+                  {
+                     "text" : "Scattered Thunderstorms",
+                     "date" : "19 Apr 2017",
+                     "high" : "21",
+                     "day" : "Wed",
+                     "code" : "47",
+                     "low" : "13"
+                  },
+                  {
+                     "code" : "30",
+                     "low" : "13",
+                     "day" : "Thu",
+                     "high" : "21",
+                     "date" : "20 Apr 2017",
+                     "text" : "Partly Cloudy"
+                  },
+                  {
+                     "date" : "21 Apr 2017",
+                     "text" : "Mostly Cloudy",
+                     "high" : "21",
+                     "day" : "Fri",
+                     "low" : "12",
+                     "code" : "28"
+                  },
+                  {
+                     "day" : "Sat",
+                     "low" : "13",
+                     "code" : "28",
+                     "date" : "22 Apr 2017",
+                     "text" : "Mostly Cloudy",
+                     "high" : "19"
+                  },
+                  {
+                     "high" : "20",
+                     "date" : "23 Apr 2017",
+                     "text" : "Rain",
+                     "code" : "12",
+                     "low" : "12",
+                     "day" : "Sun"
+                  },
+                  {
+                     "text" : "Mostly Cloudy",
+                     "date" : "24 Apr 2017",
+                     "high" : "21",
+                     "day" : "Mon",
+                     "code" : "28",
+                     "low" : "13"
+                  },
+                  {
+                     "code" : "26",
+                     "low" : "15",
+                     "day" : "Tue",
+                     "high" : "19",
+                     "date" : "25 Apr 2017",
+                     "text" : "Cloudy"
+                  },
+                  {
+                     "code" : "30",
+                     "low" : "13",
+                     "day" : "Wed",
+                     "high" : "19",
+                     "text" : "Partly Cloudy",
+                     "date" : "26 Apr 2017"
+                  },
+                  {
+                     "code" : "34",
+                     "low" : "11",
+                     "day" : "Thu",
+                     "high" : "22",
+                     "date" : "27 Apr 2017",
+                     "text" : "Mostly Sunny"
+                  },
+                  {
+                     "low" : "12",
+                     "code" : "30",
+                     "day" : "Fri",
+                     "high" : "21",
+                     "text" : "Partly Cloudy",
+                     "date" : "28 Apr 2017"
+                  }
+               ],
+               "description" : "<![CDATA[<img src=\"http://l.yimg.com/a/i/us/we/52/26.gif\"/>\n<BR />\n<b>Current Conditions:</b>\n<BR />Cloudy\n<BR />\n<BR />\n<b>Forecast:</b>\n<BR /> Wed - Scattered Thunderstorms. High: 21Low: 13\n<BR /> Thu - Partly Cloudy. High: 21Low: 13\n<BR /> Fri - Mostly Cloudy. High: 21Low: 12\n<BR /> Sat - Mostly Cloudy. High: 19Low: 13\n<BR /> Sun - Rain. High: 20Low: 12\n<BR />\n<BR />\n<a href=\"http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-1105779/\">Full Forecast at Yahoo! Weather</a>\n<BR />\n<BR />\n(provided by <a href=\"http://www.weather.com\" >The Weather Channel</a>)\n<BR />\n]]>",
+               "link" : "http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-1105779/",
+               "lat" : "-33.856281"
+            }
+         }
+      }
+   }
+}

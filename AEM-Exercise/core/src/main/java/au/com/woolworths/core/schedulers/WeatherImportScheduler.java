@@ -15,51 +15,52 @@
  */
 package au.com.woolworths.core.schedulers;
 
+import static java.lang.String.format;
+
 import java.util.Map;
 
 import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Properties;
 import org.apache.felix.scr.annotations.Property;
+import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
-import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import au.com.woolworths.core.services.WeatherForcastImporter;
 
 /**
  * A simple demo for cron-job like tasks that get executed regularly.
  * It also demonstrates how property values can be set. Users can
  * set the property values in /system/console/configMgr
  */
-@Component(metatype = true, label = "A scheduled task", 
-    description = "Simple demo for cron-job like task with properties")
+@Component(metatype = true, label = "Weather Forecast Scheduler Task", description = "Imports Forecasts into repository on a scheduled basis")
 @Service(value = Runnable.class)
 @Properties({
-    @Property(name = "scheduler.expression", value = "*/30 * * * * ?",
-        description = "Cron-job expression"),
-    @Property(name = "scheduler.concurrent", boolValue=false,
-        description = "Whether or not to schedule this task concurrently")
+ // TODO MJP - Change quarts to 0 0/1
+    @Property(name = "scheduler.expression", value = "0 1/2 * * * ?", description = "Cron-job expressions"),
+    @Property(name = "scheduler.concurrent", boolValue=false, description = "Whether or not to schedule this task concurrently")
 })
-public class SimpleScheduledTask implements Runnable {
-
+public class WeatherImportScheduler implements Runnable {
     private final Logger logger = LoggerFactory.getLogger(getClass());
-    
+
+    @Reference
+    private WeatherForcastImporter importer;
+
     @Override
     public void run() {
-        logger.debug("SimpleScheduledTask is now running, myParameter='{}'", myParameter);
-    }
-    
-    @Property(label = "A parameter", description = "Can be configured in /system/console/configMgr")
-    public static final String MY_PARAMETER = "myParameter";
-    private String myParameter;
-    
-    @Activate
-    protected void activate(final Map<String, Object> config) {
-        configure(config);
+        try {
+            logger.info("{} has started", getClass().getSimpleName());
+            importer.importForecast();
+        } finally {
+            logger.info("{} has completed", getClass().getSimpleName());
+        }
     }
 
-    private void configure(final Map<String, Object> config) {
-        myParameter = PropertiesUtil.toString(config.get(MY_PARAMETER), null);
-        logger.debug("configure: myParameter='{}''", myParameter);
+    @Activate
+    protected void activate(final Map<String, Object> config) {
+        logger.debug(format("%s activated", getClass().getSimpleName()));
     }
+
 }

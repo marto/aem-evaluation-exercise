@@ -122,6 +122,11 @@
                     <embeddeds>
                         <embedded>
                             <groupId>AEM-Exercise</groupId>
+                            <artifactId>core.spring</artifactId>
+                            <target>/apps/AEM-Exercise/install</target>
+                        </embedded>
+                        <embedded>
+                            <groupId>AEM-Exercise</groupId>
                             <artifactId>AEM-Exercise.core</artifactId>
                             <target>/apps/AEM-Exercise/install</target>
                         </embedded>
@@ -203,9 +208,13 @@
         <dependency>
             <groupId>AEM-Exercise</groupId>
             <artifactId>AEM-Exercise.core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
- 
+        <dependency>
+            <groupId>AEM-Exercise</groupId>
+            <artifactId>core.spring</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>AEM-Exercise</groupId>
             <artifactId>3rdPartyLibs</artifactId>
