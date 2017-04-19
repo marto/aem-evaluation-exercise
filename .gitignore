@@ -3,3 +3,6 @@
 
 ## Maven
 target/
+
+## Vim swap files
+*.sw[a-z]
