@@ -1,6 +1,0 @@
-au/com/woolworths/core/servlets/SimpleServlet.class
-au/com/woolworths/core/models/HelloWorldModel.class
-au/com/woolworths/core/listeners/SimpleResourceListener.class
-au/com/woolworths/core/package-info.class
-au/com/woolworths/core/filters/LoggingFilter.class
-au/com/woolworths/core/schedulers/SimpleScheduledTask.class
