@@ -11,4 +11,7 @@
     </div>
   </div>
   {{/forecasts}}
+  {{#unless forecasts}}
+  <p>Sorry, no weather forecasts are available at the moment.</p>
+  {{/unless}}
 </script>

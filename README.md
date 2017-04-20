@@ -41,6 +41,9 @@ Or to deploy only the bundle to the author, run
 
     mvn clean install -PautoInstallBundle
 
+## IMPORTANT - IDE Setup 
+This project uses [Lombok](projectlombok.org) - a java pre-processor that generates getters, setters, constructors, equals and hashCode methods from annotations. In order for your IDE to function and compile the source, you need to setup your IDE. Run `java -jar lombok.jar` and follow the instuctions. `lmobok.jar` can be downloaded from the [lombok site](projectlombok.org).
+
 ## Testing
 
 There are three levels of testing contained in the project:

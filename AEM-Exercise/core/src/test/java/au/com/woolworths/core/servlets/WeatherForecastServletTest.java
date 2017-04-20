@@ -48,7 +48,7 @@ public class WeatherForecastServletTest {
     }
 
     @Test
-    public void test() throws IOException, ServletException, JSONException {
+    public void testServiceReturnsNoDataWhenNoDataIsAvailable() throws IOException, ServletException, JSONException {
         givenNoWeatherData();
 
         whenServletIsCalled();
@@ -56,9 +56,8 @@ public class WeatherForecastServletTest {
         thenServletReturned(forecasts("[]"));
     }
 
-
     @Test
-    public void test2() throws IOException, ServletException, JSONException {
+    public void testServiceReturnsDataWhenDataIsAvailable() throws IOException, ServletException, JSONException {
         givenWeatherData();
 
         whenServletIsCalled();
