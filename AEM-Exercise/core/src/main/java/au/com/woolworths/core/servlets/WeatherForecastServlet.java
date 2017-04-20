@@ -2,6 +2,7 @@ package au.com.woolworths.core.servlets;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
 import au.com.woolworths.core.integration.model.Forecast;
+import lombok.Getter;
 
 /**
  * Retrieves the weather forecast for the next 10 days from the repository if available.
@@ -46,21 +48,31 @@ public class WeatherForecastServlet extends SlingSafeMethodsServlet {
         objectSerializer.writeValue(res.getWriter(), getForecasts(req.getResourceResolver(), LocalDate.now().plusDays(1)));
     }
 
-    private List<Forecast> getForecasts(ResourceResolver resolver, LocalDate tomorrow) {
-        List<Forecast> ret = new ArrayList<Forecast>();
+    private Data getForecasts(ResourceResolver resolver, LocalDate tomorrow) {
+        final Data data = new Data();
         LocalDate date = tomorrow;
         for (int i = 0; i < 10; i++) {
             Forecast forecast = getForecast(resolver, date);
             if (forecast != null) {
-                ret.add(forecast);
+                data.addItem(forecast);
             }
             date = date.plusDays(1);
         }
-        return ret;
+        return data;
     }
 
     private Forecast getForecast(ResourceResolver resolver, LocalDate pointInTime) {
         return resolver.resolve("/content/weather/"+ pointInTime.format(DATE_FORMAT)).adaptTo(Forecast.class);
+    }
+
+    @Getter
+    public static class Data {
+        private final String date = DateTimeFormatter.ISO_DATE_TIME.format(LocalDateTime.now());
+        private final List<Forecast> forecasts = new ArrayList<Forecast>();
+
+        private void addItem(Forecast item) {
+            this.forecasts.add(item);
+        }
     }
 
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy/MM/dd");
