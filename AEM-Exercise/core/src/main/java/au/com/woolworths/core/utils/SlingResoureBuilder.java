@@ -11,6 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.apache.jackrabbit.JcrConstants;
+import org.apache.sling.api.resource.ModifiableValueMap;
 import org.apache.sling.api.resource.NonExistingResource;
 import org.apache.sling.api.resource.PersistenceException;
 import org.apache.sling.api.resource.Resource;
@@ -43,6 +44,7 @@ public class SlingResoureBuilder {
 
     public static SlingResoureBuilder modifyResource(Resource existing) {
         SlingResoureBuilder builder = new SlingResoureBuilder(existing.getResourceResolver(), existing.getParent(), existing.getName(), existing);
+        builder.properties = existing.adaptTo(ModifiableValueMap.class);
         return builder;
     }
 
