@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import org.apache.felix.scr.annotations.sling.SlingServlet;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 
@@ -67,7 +68,8 @@ public class WeatherForecastServlet extends SlingSafeMethodsServlet {
     }
 
     private Forecast getForecast(ResourceResolver resolver, LocalDate pointInTime) {
-        return resolver.resolve("/content/weather/"+ pointInTime.format(DATE_FORMAT)).adaptTo(Forecast.class);
+        final Resource resource = resolver.getResource("/content/weather/"+ pointInTime.format(DATE_FORMAT));
+        return resource == null ? null : resource.adaptTo(Forecast.class);
     }
 
     @Getter
