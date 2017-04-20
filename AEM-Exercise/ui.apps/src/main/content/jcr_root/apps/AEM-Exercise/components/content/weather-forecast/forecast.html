@@ -1,7 +1,7 @@
 <script id="weather--forecast-template" type="text/x-handlebars-template">
   {{#forecasts}}
   <span>
-      <h4>{{date}}</h4>
+      <h4>{{formatDate date weekday="short"}}</h4>
       <p>{{text}}</p>
       <p>Min {{low}} </p>
       <p>Max {{high}}</p>

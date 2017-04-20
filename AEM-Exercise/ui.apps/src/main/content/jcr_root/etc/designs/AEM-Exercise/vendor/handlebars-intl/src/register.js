@@ -1,0 +1,3 @@
+;(function() {
+    HandlebarsIntl.registerWith(Handlebars);
+})();

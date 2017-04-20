@@ -1,0 +1,3 @@
+#base=src
+handlebars-intl.min.js
+register.js
