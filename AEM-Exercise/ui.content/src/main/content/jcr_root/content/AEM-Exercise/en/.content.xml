@@ -18,14 +18,6 @@
         <par
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/parsys">
-            <title_0
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Service Component"
-                type="h2"
-                sling:resourceType="AEM-Exercise/components/content/title"/>
-            <servicecomponent
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="AEM-Exercise/components/content/helloworld"/>
             <title_1
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Lorem ipsum"
