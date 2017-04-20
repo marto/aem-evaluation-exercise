@@ -135,12 +135,12 @@
             <artifactId>servlet-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>aem-api</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.models.api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>aem-api</artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -186,6 +186,21 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+        
+        <!-- NOTE for AEM 6.2+ use version 2.x of aem-mock. For AEM 6.0 to 6.1 use 1.x -->
+        <dependency>
+            <groupId>io.wcm</groupId>
+            <artifactId>io.wcm.testing.aem-mock</artifactId>
+            <version>1.8.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.skyscreamer</groupId>
+            <artifactId>jsonassert</artifactId>
+            <version>1.2.3</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>
