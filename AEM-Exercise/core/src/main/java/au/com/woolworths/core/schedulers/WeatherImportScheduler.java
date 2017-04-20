@@ -38,8 +38,7 @@ import au.com.woolworths.core.services.WeatherForcastImporter;
 @Component(metatype = true, label = "Weather Forecast Scheduler Task", description = "Imports Forecasts into repository on a scheduled basis")
 @Service(value = Runnable.class)
 @Properties({
- // TODO MJP - Change quarts to 0 0/1
-    @Property(name = "scheduler.expression", value = "0 1/2 * * * ?", description = "Cron-job expressions"),
+    @Property(name = "scheduler.expression", value = "0 1/15 * * * ?", description = "Cron-job expressions"),
     @Property(name = "scheduler.concurrent", boolValue=false, description = "Whether or not to schedule this task concurrently")
 })
 public class WeatherImportScheduler implements Runnable {
