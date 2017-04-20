@@ -1,10 +1,14 @@
 <script id="weather--forecast-template" type="text/x-handlebars-template">
   {{#forecasts}}
-  <span>
-      <h4>{{formatDate date weekday="short"}}</h4>
-      <p>{{text}}</p>
-      <p>Min {{low}} </p>
-      <p>Max {{high}}</p>
-  </span>
+  <div class="forecast">
+    <div class="forecast-content">
+      <h4 class="day">{{formatDate date weekday="short"}}</h4>
+      {{text}}
+    </div>
+    <div class="temp">
+       <div class="forecast-cell">Min <em class="min">{{low}}</em></div>
+       <div class="forecast-cell">Max <em class="max">{{high}}</em></div>
+    </div>
+  </div>
   {{/forecasts}}
 </script>
